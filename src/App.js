@@ -4,12 +4,25 @@ import { times } from 'ramda'
 import './App.css'
 
 import Cell from './Cell'
+import getPlayer from './utilities'
 
-const makeCells = () =>
-  times(
-    idx => <Cell key={idx} index={idx} mines={idx % 2 === 0 ? 'X' : '0'} />,
-    30
-  )
+// import initialState from './state/Constants'
+
+const mines = []
+
+const makeCells = mines => {
+  return times(square => {
+    const player = getPlayer(cell, mines)
+
+    return isUndefined(player)
+      ? <Cell
+        key={cell}
+        index={cell}
+        handleClick={() => console.log(`Cell ${cell}`)}
+        />
+      : <Cell key={cell} index={cell} player={player} />
+  }, 30)
+}
 
 const Board = styled.div`
 align-self: center;
@@ -17,12 +30,12 @@ display: grid;
 grid-area: board;
 grid-gap: 0;
 grid-template-areas: 'zero one two' 'three four five' 'six seven eight';
-grid-template-columns: 15vh 15vh 15vh 15vh 15vh 15vh;
-grid-template-rows: 15vh 15vh 15vh 15vh 15vh 15vh;
-height: 75vh;
+grid-template-columns: 13vh 13vh 13vh 13vh 13vh 13vh;
+grid-template-rows: 13vh 13vh 13vh 13vh 13vh 13vh;
+height: 65vh;
 justify-self: center;
-margin: auto;
-width: 90vh;
+margin: 100px;
+width: 78vh;
 color: black;
 border-style: dotted;
 `
@@ -42,7 +55,7 @@ class App extends Component {
     return (
       <StyledApp>
         <Board>
-          {makeCells()}
+          {makeCells(mines)}
 
         </Board>
       </StyledApp>
