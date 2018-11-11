@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const Cell = styled.div`
-color: green;
+const StyledCell = styled.div`
+color: ${({ mines }) => (mines === 'x' ? 'hsla(6, 59%, 50%, 1)' : 'hsla(6, 59%, 50%, 1)')};
+border-style: solid;
   font-size: 2rem;
   width: 75px;
   height: 75px;
@@ -14,4 +15,10 @@ color: green;
   align-items: center;
   justify-content: center;`
 
-export default Cell
+export default function Cell (props) {
+  return (
+    <StyledCell index={props.index} mines={props.mines}>
+      {props.mines}
+    </StyledCell>
+  )
+}
