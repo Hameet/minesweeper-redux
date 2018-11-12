@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { isUndefined } from 'ramda-adjunct'
 
 const StyledCell = styled.div`
-// color: ${({ mines }) => (mines === 'xx' ? 'hsla(6, 59%, 50%, 1)' : 'hsla(6, 59%, 50%, 1)')};
-// border-width: 0 ${({ index }) => (index % 3 === 2 ? 0 : '2px')}
-//     ${({ index }) => (index < 6 ? '4px' : 0)} 0;
-//     cursor: ${({ onClick }) => (isUndefined(onClick) ? 'default' : 'pointer')}
+color: ${({ mines }) => (mines === 'xx' ? 'hsla(6, 59%, 50%, 1)' : 'hsla(6, 59%, 50%, 1)')};
+border-width: 0 ${({ index }) => (index % 3 === 2 ? 0 : '2px')}
+    ${({ index }) => (index < 6 ? '4px' : 0)} 0;
+    cursor: ${({ onClick }) => (isUndefined(onClick) ? 'default' : 'pointer')}
 border-style: solid;
   font-size: 2rem;
   width: 13vh;

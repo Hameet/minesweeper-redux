@@ -51,7 +51,7 @@ const StyledApp = styled.div`
   width: 100vw;
 `
 
-export default function App ({ moves = [0, 2] }) {
+export default function App ({ moves = [0, 2, 4] }) {
   return (
     <StyledApp>
       <Board>

@@ -2,6 +2,4 @@ const initialState = {
   mines: 8
 }
 
-export default {
-  initialState
-}
+export const CELL_CLICKED = 'CELL_CLICKED'
