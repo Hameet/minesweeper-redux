@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { times } from 'ramda'
+import { isUndefined } from 'ramda-adjunct'
 import './App.css'
 
 import Cell from './Cell'
@@ -10,9 +11,9 @@ import getPlayer from './utilities'
 
 const mines = []
 
-const makeCells = mines => {
-  return times(square => {
-    const player = getPlayer(cell, mines)
+const makeCells = moves => {
+  return times(cell => {
+    const player = getPlayer(cell, moves)
 
     return isUndefined(player)
       ? <Cell
@@ -50,17 +51,13 @@ const StyledApp = styled.div`
   width: 100vw;
 `
 
-class App extends Component {
-  render () {
-    return (
-      <StyledApp>
-        <Board>
-          {makeCells(mines)}
+export default function App ({ moves = [4, 0, 2] }) {
+  return (
+    <StyledApp>
+      <Board>
+        {makeCells(moves)}
 
-        </Board>
-      </StyledApp>
-    )
-  }
+      </Board>
+    </StyledApp>
+  )
 }
-
-export default App

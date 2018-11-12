@@ -1,7 +1,7 @@
 import { indexOf } from 'ramda'
 
-export default function getPlayer (cell, mines = []) {
-  const move = indexOf(cell, mines)
+export default function getPlayer (cell, moves = []) {
+  const move = indexOf(cell, moves)
 
   if (move < 0) {
     return undefined

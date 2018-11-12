@@ -23,10 +23,10 @@ border-style: solid;
   align-items: center;
   justify-content: center;`
 
-export default function Cell (props) {
+export default function Cell ({ handleClick, index, player }) {
   return (
-    <StyledCell index={props.index} mines={props.mines} onClick={handleClick}>
-      {props.mines}
+    <StyledCell index={index} player={player} onClick={handleClick}>
+      {player}
     </StyledCell>
   )
 }
