@@ -1,4 +1,4 @@
-import CELL_CLICKED from './Constants'
+import { CELL_CLICKED } from '..'
 
 function cellClicked (cell) {
   return {

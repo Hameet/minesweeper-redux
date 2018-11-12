@@ -1,5 +1,6 @@
-import { cellClicked } from './Actions'
-import { CELL_CLICKED } from './Constants'
-import { initialState, rootReducer } from './Reducer'
+import { cellClicked } from './actions'
+import { CELL_CLICKED } from './constants'
+import { initialState, rootReducer } from './reducer'
+import configureStore from './store'
 
-export { initialState, rootReducer, CELL_CLICKED, cellClicked }
+export { configureStore, initialState, rootReducer, CELL_CLICKED, cellClicked }

@@ -1,6 +1,6 @@
 import { isUndefined } from 'ramda-adjunct'
 
-import { CELL_CLICKED } from './Constants'
+import { CELL_CLICKED } from '..'
 
 const initialState = { moves: [] }
 
