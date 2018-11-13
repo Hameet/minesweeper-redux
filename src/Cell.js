@@ -23,6 +23,7 @@ border-style: solid;
   justify-content: center;`
 
 export default function Cell ({ handleClick, index, player }) {
+  console.log('handleclick', player)
   return isUndefined(player)
     ? <StyledCell index={index} onClick={handleClick} />
     : <StyledCell index={index} player={player}> {player}</StyledCell>

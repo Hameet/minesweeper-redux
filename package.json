@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^23.6.0",
+    "jest-enzyme": "^7.0.1",
+    "jest-styled-components": "^6.3.1",
     "ramda": "^0.25.0",
     "ramda-adjunct": "^2.11.0",
     "react": "^16.6.1",

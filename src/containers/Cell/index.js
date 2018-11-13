@@ -13,7 +13,6 @@ function mapStateToProps (state, { index }) {
 }
 
 function mapDispatchToProps (dispatch, { index }) {
-  console.log('handleclick', dispatch)
   return {
     handleClick: () => dispatch(cellClicked(index))
   }
