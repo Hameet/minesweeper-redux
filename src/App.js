@@ -1,22 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { times } from 'ramda'
-import { isUndefined } from 'ramda-adjunct'
-import { connect } from 'react-redux'
 
-import { getMoves, cellClicked } from './state'
-import Cell from './Cell'
-import getPlayer from './utilities'
+import { Cell } from './containers'
 
-function makeCells (markCell, moves = []) {
-  return times(cell => {
-    const player = getPlayer(cell, moves)
+// function makeCells (markCell, moves = []) {
+//   return times(cell => {
+//     const player = getPlayer(cell, moves)
 
-    return isUndefined(player)
-      ? <Cell key={cell} index={cell} handleClick={() => markCell(cell)} />
-      : <Cell key={cell} index={cell} player={player} />
-  }, 30)
-}
+//     return isUndefined(player)
+//       ? <Cell key={cell} index={cell} handleClick={() => markCell(cell)} />
+//       : <Cell key={cell} index={cell} player={player} />
+//   }, 30)
+// }
 
 const Board = styled.div`
 align-self: center;
@@ -44,26 +40,12 @@ const StyledApp = styled.div`
   width: 100vw;
 `
 
-export function App ({ moves, markCell }) {
+export function App () {
   return (
     <StyledApp>
       <Board>
-        {makeCells(moves, markCell)}
+        {times(cell => <Cell key={cell} index={cell} />, 30)}
       </Board>
     </StyledApp>
   )
 }
-
-function mapStateToProps (state) {
-  return {
-    moves: getMoves(state)
-  }
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    markCell: cell => dispatch(cellClicked(cell))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
