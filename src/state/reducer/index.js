@@ -11,7 +11,7 @@ function rootReducer (state = initialState, { payload = {}, type }) {
         ...state,
         moves: isUndefined(payload.cell)
           ? state.moves
-          : [...state.moves, payload.square]
+          : [...state.moves, payload.cell]
       }
     default:
       return state

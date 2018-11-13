@@ -13,7 +13,6 @@ border-style: solid;
   height: 13vh;
   border: 1px #ccc dotted;
   border-radius: 10%;
-//   background-color: white;
   margin-top: 1px
   margin-left: 2px;
   margin-right: 2px;
@@ -24,46 +23,10 @@ border-style: solid;
   justify-content: center;`
 
 export default function Cell ({ handleClick, index, player }) {
+  console.log('makeCells', handleClick)
   return (
     <StyledCell index={index} player={player} onClick={handleClick}>
       {player}
     </StyledCell>
   )
 }
-
-// class Cell extends React.Component {
-//   getValue () {
-//     const { value } = this.props
-
-//     if (!value.isRevealed) {
-//       return this.props.value.isFlagged ? '🚩' : null
-//     }
-//     if (value.isMine) {
-//       return '💣'
-//     }
-//     if (value.neighbour === 0) {
-//       return null
-//     }
-//     return value.neighbour
-//   }
-//   render () {
-//     const { value, onClick, cMenu } = this.props
-//     return (
-//       <div onClick={this.props.onClick} onContextMenu={this.props.cMenu}>
-//         {this.getValue()}
-//       </div>
-//     )
-//   }
-// }
-
-// // Type checking With PropTypes
-// const cellItemShape = {
-//   isRevealed: PropTypes.bool,
-//   isMine: PropTypes.bool,
-//   isFlagged: PropTypes.bool
-// }
-// Cell.propTypes = {
-//   value: PropTypes.objectOf(PropTypes.shape(cellItemShape)),
-//   onClick: PropTypes.func,
-//   cMenu: PropTypes.func
-// }

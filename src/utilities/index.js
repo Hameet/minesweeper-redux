@@ -11,6 +11,6 @@ export default function getPlayer (cell, moves = []) {
   // if (not(contains(cell, moves))) {
   //   moves.push(cell)
   // }
-  console.log('statement', move, rad, move % 2)
+  // console.log('statement', move, rad, move % 2)
   return move % rad === 0 ? '💣' : null
 }

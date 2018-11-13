@@ -2,25 +2,18 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { times } from 'ramda'
 import { isUndefined } from 'ramda-adjunct'
-import './App.css'
+import { connect } from 'react-redux'
 
+import { getMoves, cellClicked } from './state'
 import Cell from './Cell'
 import getPlayer from './utilities'
 
-// import initialState from './state/Constants'
-
-const mines = []
-
-const makeCells = moves => {
+function makeCells (markCell, moves = []) {
   return times(cell => {
     const player = getPlayer(cell, moves)
 
     return isUndefined(player)
-      ? <Cell
-        key={cell}
-        index={cell}
-        handleClick={() => console.log(`Cell ${cell}`)}
-        />
+      ? <Cell key={cell} index={cell} handleClick={() => markCell(cell)} />
       : <Cell key={cell} index={cell} player={player} />
   }, 30)
 }
@@ -51,13 +44,26 @@ const StyledApp = styled.div`
   width: 100vw;
 `
 
-export default function App ({ moves = [0, 2, 4] }) {
+export function App ({ moves, markCell }) {
   return (
     <StyledApp>
       <Board>
-        {makeCells(moves)}
-
+        {makeCells(moves, markCell)}
       </Board>
     </StyledApp>
   )
 }
+
+function mapStateToProps (state) {
+  return {
+    moves: getMoves(state)
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    markCell: cell => dispatch(cellClicked(cell))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
