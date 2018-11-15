@@ -4,16 +4,6 @@ import { times } from 'ramda'
 
 import { Cell } from './containers'
 
-// function makeCells (markCell, moves = []) {
-//   return times(cell => {
-//     const player = getPlayer(cell, moves)
-
-//     return isUndefined(player)
-//       ? <Cell key={cell} index={cell} handleClick={() => markCell(cell)} />
-//       : <Cell key={cell} index={cell} player={player} />
-//   }, 30)
-// }
-
 const Board = styled.div`
 align-self: center;
 display: grid;

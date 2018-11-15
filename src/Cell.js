@@ -6,7 +6,7 @@ const StyledCell = styled.div`
 color: ${({ mines }) => (mines === 'xx' ? 'hsla(6, 59%, 50%, 1)' : 'hsla(6, 59%, 50%, 1)')};
 border-width: 0 ${({ index }) => (index % 3 === 2 ? 0 : '2px')}
     ${({ index }) => (index < 6 ? '4px' : 0)} 0;
-    cursor: ${({ onClick }) => (isUndefined(onClick) ? 'default' : 'pointer')}
+    cursor: ${({ onClick }) => (onClick ? 'default' : 'pointer')}
 border-style: solid;
   font-size: 2rem;
   width: 13vh;
@@ -23,7 +23,7 @@ border-style: solid;
   justify-content: center;`
 
 export default function Cell ({ handleClick, index, player }) {
-  console.log('handleclick', player)
+  // console.log('handleclick', handleClick)
   return isUndefined(player)
     ? <StyledCell index={index} onClick={handleClick} />
     : <StyledCell index={index} player={player}> {player}</StyledCell>
