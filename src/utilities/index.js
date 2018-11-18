@@ -3,16 +3,17 @@
 // export default function getPlayer (cell, moves = []) {
 //   const move = Math.floor(Math.random() * 9)
 //   const rad = Math.floor(Math.random() * 12)
+//   const click = indexOf(cell, moves)
 
-//   if (move < 0) {
+//   if (click < 0) {
 //     return undefined
 //   }
 
 //   // if (not(contains(cell, moves))) {
 //   //   moves.push(cell)
 //   // }
-//   // console.log('statement', move, rad, move % 2)
-//   return move % rad === 0 ? '💣' : null
+//   console.log('click', click)
+//   return click % rad === 0 ? '💣' : null
 // }
 
 import { indexOf } from 'ramda'
@@ -26,6 +27,6 @@ export default function getPlayer (cell, moves = []) {
   if (move < 0) {
     return undefined
   }
-  console.log('move', move, 'value', value)
-  return value === 0 ? '💣' : 'no mine'
+  console.log('move', move, 'move % 2', move % 2)
+  return move % 2 === 0 ? '💣' : null
 }
